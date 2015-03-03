@@ -1,0 +1,58 @@
+body {
+  padding-top: 50px;
+  background-color:#02172a;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: left;
+}
+h1 {
+  margin: 0.67em 0;
+  font-size: 2em;
+  text-transform:uppercase;
+  color:#f3efef; 
+}
+#footer {
+ 
+  height: 60px;
+  background-color: #cccccc;
+  padding: 5px;
+}
+
+#footer a {
+
+ color:#000000;
+
+ 
+}
+
+#footer a:hover {
+  color:#2aa2da;
+  text-decoration:none;
+  
+
+ 
+}
+
+#footer .containerfooter
+{
+	width: 80%;
+	margin-top: 0px;
+}
+
+#footer .right40
+{
+	width: 20%;
+}
+
+#footer p {
+  padding-top: .05%
+	
+}
+
+
+.form p {
+   padding-top: 10px;
+   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 1.45em;
+  }

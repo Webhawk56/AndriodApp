@@ -1,0 +1,1474 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" ng-app="azubu">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="author" content="www.azubu.com" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+        <meta http-equiv="cleartype" content="on">
+        <meta name="google-translate-customization" content="cd1d92946d68a0cc-1f86028ec76abcba-g259878330a86848b-1c"></meta>
+        <meta name="description" content="    Azubu is a global broadcast network, delivering premium live and on demand eSports action, programming, news and analysis.">
+        <title>    Azubu | The premier eSports network</title>
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/custom.css?-xno=201501231757" />
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/static.css?-xno=201501231757" />
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/bootstrap.css?-xno=201501231757" />
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/azubu-migrate.css?-xno=201501231757" />
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/carousel_small.css?-xno=201501231757" />
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/carousel2.css?-xno=201501231757" />
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/bootstrap-lightbox/bootstrap-lightbox.min.css?-xno=201501231757" />
+        <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/styleGlobals.css?-xno=201501231757" />
+        <link href="http://img.azubu.tv/bundles/azubuweb/img/favicon.ico?-xno=201501231757" rel="shortcut icon" type="image/x-icon" />
+        <link href='//fonts.googleapis.com/css?family=Ubuntu:400,700,500,400italic,500italic,700italic,300italic,300' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/libs/angular.min.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/libs/jquery.min.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/services/local-storage.service.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/services/channel.service.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/controllers/channel.controller.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/controllers/follow.controller.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/directives/azubu-channel.directive.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/scripts/directives/azubu-following-list.directive.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/jquery.tmpl.min.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/jquery.cookie.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/jquery.localstorage.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/jquery.form.min.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/Hash.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/jquery.hash.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/bootstrap.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/placeholder.js?-xno=201501231757"></script>
+        <!-- MOVED THIS TO BROADCASTER, not other pages use it and it interferes in other pages
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/bootstrap-tabdrop.js?-xno=201501231757"></script>
+        -->
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/azubuweb.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/hash.azubu.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/routing.azubu.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/lib/skeleton.azubu.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/lib/page.azubu.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/lib/player.azubu.js?-xno=201501231757"></script>
+        <!--<script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/tiles.js?-xno=201501231757"></script>-->
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/rating.js?-xno=201501231757"></script>
+
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/usersocial.azubu.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/user.azubu.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/pages/init.page.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/app/pages/layout.page.js?-xno=201501231757"></script>
+        <script type="text/javascript" src="//use.typekit.net/zwl8fwn.js"></script>
+        <script type="text/javascript">
+            try {
+                Typekit.load();
+            } catch (e) {
+            }
+        </script>
+        <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/pulsar.js?-xno=201501231757"></script>
+        <script type="text/javascript">
+            try {
+                            AZUBU.User.setLogged(false);
+                        } catch (e) {
+            }
+        </script>
+    <script type="text/javascript" src="http://img.azubu.tv/bundles/azubuweb/js/growl/bootstrap-growl.min.js?-xno=201501231757"></script>
+    <script src="http://img.azubu.tv/bundles/azubuweb/js/jquery.slimscroll.js?-xno=201501231757" type="text/javascript" ></script>
+    <script src="http://img.azubu.tv/bundles/azubuweb/js/MetroJs.js?-xno=201501231757" type="text/javascript" ></script>
+    <script src="http://img.azubu.tv/bundles/azubuweb/js/pulsar.js?-xno=201501231757" type="text/javascript" ></script>
+    <script src="http://img.azubu.tv/bundles/azubuweb/js/app/pages/home.page.js?-xno=201501231757" type="text/javascript" ></script>
+    <script src="http://img.azubu.tv/bundles/azubuweb/js/bootstrap-lightbox/bootstrap-lightbox.min.js?-xno=201501231757" type="text/javascript" ></script>
+        <style type="text/css">
+        @font-face {
+            font-family: 'Glyphicons Halflings';
+            src: url('http://img.azubu.tv/bundles/azubuweb/fonts/glyphicons-halflings-regular.woff?-xno=201501231757') format('woff'),
+                    url('http://img.azubu.tv/bundles/azubuweb/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular?-xno=201501231757') format('svg'),
+                    url('http://netdna.bootstrapcdn.com/bootstrap/3.1.1/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+                    url('http://netdna.bootstrapcdn.com/bootstrap/3.1.1/fonts/glyphicons-halflings-regular.eot');
+					
+        }
+		.starter-template {
+			font-size:14px;
+		}
+		h2 {
+			color:#ffffff;
+		}
+		
+	
+        </style>
+        <!--[if IE]><link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/fonts_ie.css?-xno=201501231757" /><![endif]-->
+    </head>
+    <body style="background-color:#02172a">
+                <div id="head-bar" data-az-type="head-bar">
+                            <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/head_private_menu.css?-xno=201501231757" />
+<!-- HEAD BLOCK -->
+
+<div style="display:none;">
+            <script type="text/javascript">
+            $(function() {
+                var validate = {
+                    'email': AZUBU.user.validate.email,
+                    'password': AZUBU.user.validate.password,
+                };
+
+                // Login
+                var isFormSubmited = false;
+                $('#main-form-login').on('submit', function(event) {
+                    var $email = $(this).children(':input[name="_username"]')
+                      , $password = $(this).children(':input[name="_password"]')
+                      , email = $.trim($email.val())
+                      , password = $.trim($password.val());
+
+                    event.stopPropagation();
+                    event.preventDefault();
+                    if (!email.length) {
+                        AZUBU.notification.showError(Translator.trans('Registration.Please enter your email or username', {}, 'general'));
+                    }
+                    else if (!password.length) {
+                        AZUBU.notification.showError(Translator.trans('Registration.Please enter your password', {}, 'general'));
+                    }
+                    else if (!validate.password(password)) {
+                        AZUBU.notification.showError(Translator.trans('Registration.Please enter correct your password', {}, 'general'));
+                    }
+                    else if ( !isFormSubmited ){
+                        isFormSubmited = true;
+                        $(this).ajaxSubmit({
+                            success:function(JSONResponse, statusText, xhr, $form){
+                                window.location.reload();
+                            },
+                            error:function(xhr){
+                                isFormSubmited = false;
+                                AZUBU.notification.showError(Translator.trans('Registration.Incorrect email or password, please try again', {}, 'general'));
+                            }
+                        });
+                    }
+                });
+
+                // Registration
+                $('#main-form-registration').on('submit', function(event) {
+                    event.preventDefault();
+
+                    var $email = $(this).children(':input[name="_email"]')
+                      , data = {'email': $.trim($email.val())}
+                      , url = AZUBU.routing.getPath('user_registration')
+                      , fnctCallback = $.isFunction($(this).data('fnctCallback')) ? $(this).data('fnctCallback') : $.noop();
+
+                    if (!data.email.length) {
+                        fnctCallback(false);
+                        AZUBU.notification.showError(Translator.trans('Registration.Please enter your email', {}, 'general'));
+                    }
+                    else if (!validate.email(data.email)) {
+                        fnctCallback(false);
+                        AZUBU.notification.showError(Translator.trans('Registration.Please enter correct your email', {}, 'general'));
+                    }
+                    else {
+                        $.ajax({
+                            type: 'POST',
+                            url: url,
+                            data: data,
+                            dataType: 'json'
+                        }).done(function(response) {
+                            if (response.data) {
+                                fnctCallback(true);
+                                AZUBU.notification.showSuccess(
+                                    Translator.trans('Registration.Almost there! Please check your email inbox at _email_ to complete your registration', {'email': response.data.email}, 'general')
+                                );
+                            } else {
+                                fnctCallback(false);
+                                AZUBU.notification.showError(Translator.trans('Registration.Sorry, technical error', {}, 'general'));
+                            }
+                        }).fail(function(response) {
+                            fnctCallback(false);
+                            if ('invalid_value_email_alredy_exist' === response.responseJSON.error_code) {
+                                AZUBU.notification.showError(
+                                    Translator.trans("Registration.We're sorry, that email address already exists. Please use the SIGN IN button above or JOIN FREE using a different email address", {}, "general")
+                                );
+                            } else if('server_error' === response.responseJSON.error_code) {
+                                AZUBU.notification.showError(Translator.trans('Registration.Sorry, technical error', {}, 'general'));
+                            } else {
+                                AZUBU.notification.showError(response.responseJSON.error_description);
+                            }
+                        }).always(function(e) {
+                            $email.val('');
+                        });
+                    }
+                });
+
+                // Forgot password
+                $('#main-form-forgot_password').on('submit', function(event) {
+                    event.preventDefault();
+
+                    var $email = $(this).children(':input[name="_email"]')
+                      , data = {'email': $email.val()}
+                      , url = AZUBU.routing.getPath('user_recover_password')
+                      , fnctCallback = $.isFunction($(this).data('fnctCallback')) ? $(this).data('fnctCallback') : $.noop();
+
+                    if (!data.email.length) {
+                        fnctCallback(false);
+                        AZUBU.notification.showError(Translator.trans('Registration.Please enter your email', {}, 'general'));
+                    }
+                    else if (!validate.email(data.email)) {
+                        fnctCallback(false);
+                        AZUBU.notification.showError(Translator.trans('Registration.Please enter correct your email', {}, 'general'));
+                    }
+                    else {
+                        $.ajax({
+                            type: 'POST',
+                            url: url,
+                            data: data,
+                            dataType: 'json'
+                        }).done(function(response) {
+                            if (response.data) {
+                                fnctCallback(true);
+                                AZUBU.notification.showSuccess(
+                                    Translator.trans('Registration.A confirmation email has been sent to _email_', {email: response.data.email}, 'general')
+                                );
+                            } else {
+                                fnctCallback(false);
+                                AZUBU.notification.showError(Translator.trans('Registration.Sorry, technical error', {}, 'general'));
+                            }
+                        }).fail(function(response) {
+                            fnctCallback(false);
+                            if('server_error' === response.responseJSON.error_code) {
+                                AZUBU.notification.showError(Translator.trans('Registration.Sorry, technical error', {}, 'general'));
+                            } else {
+                                AZUBU.notification.showError(response.responseJSON.error_description);
+                            }
+                        }).always(function() {
+                            $email.val('');
+                        });
+                    }
+                });
+
+                // Social service
+                // Login
+                $('#main-form-ss-login-form > [name="main-form-ss-login-send-btn"]').on('click', function() {
+                    var ssName = $(this).data('ssName')
+                      , fnctCallback = $.isFunction($(this).data('fnctCallback')) ? $(this).data('fnctCallback') : $.noop()
+                      , url = String("/api/user/social/authorize-url/%SERVICENAME%/login").replace('%SERVICENAME%', ssName)
+                      , ssWindowLogin = null
+                      , loginCallback = function(ssName, result) {
+                            var token, token_secret
+                              , $form = $('#main-form-ss-login-form');
+
+                            ssName = ssName || null;
+                            result = $.isPlainObject(result) ? result : {};
+
+                            ssWindowLogin && ssWindowLogin.close(); // close window;
+
+                            fnctCallback();
+
+                            if ('data' in result) {
+                                result = $.isPlainObject(result.data) ? result.data : {};
+
+                                token = 'social_service_token' in result
+                                    ? result.social_service_token : "";
+                                token_secret = 'social_service_token_secret' in result
+                                    ? result.social_service_token_secret : "";
+
+                                if (ssName) {
+                                    $form.children(':input[name="_name"]').val(ssName);
+                                    $form.children(':input[name="_social_service_token"]').val(token);
+                                    $form.children(':input[name="_social_service_token_secret"]').val(token_secret);
+
+                                    $form.submit();
+                                }
+                            } else if ('error_code' in result && 'error_description' in result) {
+                                if ('disallowed' === result['error_code']) {
+                                    AZUBU.notification.showError(
+                                        Translator.trans(
+                                            'UserSocial.Unfortunately serviceName account has not been connected',
+                                            { "serviceName" : ssName }, 'general'
+                                        )
+                                    );
+                                }
+                                else {
+                                    AZUBU.notification.showError(result['error_description']);
+                                }
+                            } else if (!ssName && $.isEmptyObject(result)) {
+                                AZUBU.notification.showError('User not linked with any account');
+                            }
+                        };
+
+                    $.ajax({
+                        type: 'GET', url: url, dataType: 'json'
+                    })
+                    .done(function(response){
+                        if (response) {
+                            window.socialService = {
+                                callback: {
+                                    'login': function(name, result){
+                                        loginCallback(name, result);
+                                        delete window.socialService;
+                                    }
+                                }
+                            };
+                            ssWindowLogin = window.open(response.data.url, ssName + '_auth_window', "width=800,height=550");
+                        }
+                    })
+                    .fail(function(response){
+                        fnctCallback();
+                        AZUBU.notification.showError(response.responseJSON.error_description);
+                    });
+                });
+
+                // Registration
+                $('#main-form-ss-registration-form > [name="main-form-ss-registration-send-btn"]').on('click', function() {
+                    var ssName = $(this).data('ssName')
+                      , fnctCallback = $.isFunction($(this).data('fnctCallback')) ? $(this).data('fnctCallback') : $.noop()
+                      , url = String("/api/user/social/authorize-url/%SERVICENAME%/registration").replace('%SERVICENAME%', ssName)
+                      , ssWindowRegistration = null
+                      , registrationCallback = function(ssName, result) {
+                            var token, token_secret;
+
+                            ssName = ssName || null;
+                            result = $.isPlainObject(result) ? result : {};
+
+                            ssWindowRegistration && ssWindowRegistration.close(); // close window;
+
+                            fnctCallback();
+
+                            if ('data' in result) {
+                                result = $.isPlainObject(result.data) ? result.data : {};
+
+                                token = 'social_service_token' in result
+                                    ? result.social_service_token : "";
+                                token_secret = 'social_service_token_secret' in result
+                                    ? result.social_service_token_secret : "";
+
+                                if (ssName) {
+                                    $('#main-form-ss-registration-dialog-block-name').val(ssName);
+                                    $('#main-form-ss-registration-dialog-block-token').val(token);
+                                    $('#main-form-ss-registration-dialog-block-token-secret').val(token_secret);
+
+                                    $('#main-form-ss-registration-dialog-block-show-btn').trigger('click');
+                                }
+                            } else if ('error_code' in result && 'error_description' in result) {
+                                if ('disallowed' === result['error_code']) {
+                                    AZUBU.notification.showError(
+                                        Translator.trans(
+                                            'UserSocial.Unfortunately serviceName account has not been connected',
+                                            { "serviceName" : ssName }, 'general'
+                                        )
+                                    );
+                                }
+                                else {
+                                    AZUBU.notification.showError(result['error_description']);
+                                }
+                            } else if (!ssName && $.isEmptyObject(result)) {
+                                AZUBU.notification.showError('Technical error.');
+                            }
+                        };
+
+                    $.ajax({
+                        type: 'GET', url: url, dataType: 'json'
+                    })
+                    .done(function(response){
+                        if (response) {
+                            window.socialService = {
+                                callback: {
+                                    'registration': function(name, result){
+                                        registrationCallback(name, result);
+                                        delete window.socialService;
+                                    }
+                                }
+                            };
+                            ssWindowRegistration = window.open(response.data.url, ssName + '_auth_window', "width=800,height=550");
+                        }
+                    })
+                    .fail(function(response){
+                        AZUBU.notification.showError(response.responseJSON.error_description);
+                    });
+                });
+                $('#main-form-ss-registration-dialog-block-registration-btn').on('click', function() {
+                    var data = {}
+                      , url = '/api/user/social/registration/%SERVICENAME%'
+                      , $loadingImg = $(this).find('.loading-indicator')
+                      , $name = $('#main-form-ss-registration-dialog-block-name')
+                      , name = $.trim($name.val())
+                      , $token = $('#main-form-ss-registration-dialog-block-token')
+                      , $tokenSecret = $('#main-form-ss-registration-dialog-block-token-secret')
+                      , $username = $('#main-form-ss-registration-dialog-block-username')
+                      , $password = $('#main-form-ss-registration-dialog-block-password')
+                      , $passwordConfirm = $('#main-form-ss-registration-dialog-block-password-confirm')
+                      , fnctShowError = function(txt) {
+                            $('#main-form-ss-registration-dialog-block-message-error')
+                                .text(txt)
+                                .parents('.alert-danger').removeClass('hidden');
+                        }
+                      , fnctHideError = function() {
+                            $('#main-form-ss-registration-dialog-block-message-error')
+                                .text('')
+                                .parents('.alert-danger').addClass('hidden');
+                      };
+
+                    fnctHideError();
+                    $loadingImg.show();
+
+                    if (!$name.length || !$token.length || !$tokenSecret.length
+                    || !$username.length ||  !$password.length || !$passwordConfirm.length) {
+                        return;
+                        $loadingImg.hide();
+                    }
+
+                    if (name) {
+                        url = url.replace('%SERVICENAME%', name);
+                    } else {
+                        $loadingImg.hide();
+                        return;
+                    }
+
+                    data.social_service_token = $token.val();
+                    data.social_service_token_sekret = $tokenSecret.val();
+                    data.username = $username.val();
+                    data.password = $password.val();
+
+                    //validation
+                    if(!data.username){
+                        fnctShowError(Translator.trans('UserSocial.Invalid Username value', {}, 'general'));
+                        $loadingImg.hide();
+                        return;
+                    }
+                    else if(!data.password || !validate.password(data.password)){
+                        fnctShowError(Translator.trans('UserSocial.Invalid Password value', {}, 'general'));
+                        $loadingImg.hide();
+                        return;
+                    }
+                    else if ($passwordConfirm.val() !== data.password) {
+                        fnctShowError(Translator.trans('UserSocial.Password must be equal password confirm', {}, 'general'));
+                        $loadingImg.hide();
+                        return;
+                    }
+
+                    $.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: data,
+                        dataType: 'json'
+                    })
+                    .done(function(response){
+                        if (response.data) {
+                            var $form = $('#main-form-ss-login-form')
+                              , token, token_secret;
+
+                            $('#main-form-ss-registration-dialog-block').removeClass('in').hide();
+
+                            token = 'social_service_token' in data
+                              ? data.social_service_token : "";
+                            token_secret = 'social_service_token_secret' in data
+                              ? data.social_service_token_secret : "";
+
+                            if ($form.length && name) {
+                              $form.children(':input[name="_name"]').val(name);
+                              $form.children(':input[name="_social_service_token"]').val(token);
+                              $form.children(':input[name="_social_service_token_secret"]').val(token_secret);
+
+                              $form.submit();
+                            }
+                        }
+                    })
+                    .fail(function(response){
+                        $loadingImg.hide();
+                        fnctShowError(response.responseJSON.error_description);
+                    });
+                });
+            });
+        </script>
+            <form id="main-form-login" method="post" action="/login_check" style="display:none;">
+        <input type="hidden" value="azubu-login" name="_type">
+        <input type="hidden" name="_username">
+        <input type="hidden" name="_password">
+    </form>
+
+        <form id="main-form-registration" action="#" style="display:none;">
+        <input type="hidden" name="_email">
+    </form>
+
+        <form id="main-form-forgot_password" action="#" style="display:none;">
+        <input type="hidden" name="_email">
+    </form>
+
+        <form id="main-form-ss-login-form" action="/login_check" method="post" style="display:none;">
+        <input type="hidden" name="_type" value="social-service-login">
+        <input type="hidden" name="_name">
+        <input type="hidden" name="_social_service_token">
+        <input type="hidden" name="_social_service_token_secret">
+        <input type="hidden" name="main-form-ss-login-send-btn">
+    </form>
+
+        <form id="main-form-ss-registration-form" action="#" >
+        <input type="hidden" name="main-form-ss-registration-send-btn">
+    </form>
+</div>
+
+<!-- Modal dialog Social Service Registration -->
+<div aria-hidden="true" aria-labelledby="main-form-ss-registration-dialog-block-label" role="dialog" tabindex="-1" id="main-form-ss-registration-dialog-block" class="modal fade">
+    <span style="display:none;" data-target="#main-form-ss-registration-dialog-block" data-toggle="modal" id="main-form-ss-registration-dialog-block-show-btn"></span>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="close-window" aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+                <h4 align="center" id="main-form-ss-registration-dialog-block-label" class="modal-title">Registration</h4>
+            </div>
+            <div class="modal-body">
+                <div class="well">
+                    <form class="form-horizontal" role="form">
+                        <input type="hidden" id="main-form-ss-registration-dialog-block-name">
+                        <input type="hidden" id="main-form-ss-registration-dialog-block-token">
+                        <input type="hidden" id="main-form-ss-registration-dialog-block-token-secret">
+                        <div class="form-group"><!-- Username -->
+                            <label for="main-form-ss-registration-dialog-block-username" class="col-sm-3 control-label">Username</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="main-form-ss-registration-dialog-block-username" placeholder="Enter Username" data-az-value="">
+                            </div>
+                        </div>
+                        <div class="form-group"><!-- Password -->
+                            <label for="main-form-ss-registration-dialog-block-password" class="col-sm-3 control-label">Password</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="main-form-ss-registration-dialog-block-password" placeholder="Enter password" data-az-value="">
+                            </div>
+                        </div>
+                        <div class="form-group"><!-- Password confirm -->
+                            <label for="main-form-ss-registration-dialog-block-password-confirm" class="col-sm-3 control-label">Password again</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="main-form-ss-registration-dialog-block-password-confirm" placeholder="Enter password again" data-az-value="">
+                            </div>
+                        </div>
+                    </form>
+                    <div style="clear: both;"></div>
+                    <div class="alert alert-danger hidden" aria-hidden="true">
+                        <strong>Warning!</strong>&nbsp;<span id="main-form-ss-registration-dialog-block-message-error"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" aria-hidden="true" data-dismiss="modal" id="main-form-ss-registration-dialog-block-cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="main-form-ss-registration-dialog-block-registration-btn"><img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-blue.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">Registration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- END Modal dialog Social Service Registration -->
+<div class="mobile">
+    <div id="mobile-head-block-collapse-menu-container" style="background-color: rgb(23, 24, 29); height: auto;" class="navbar-collapse collapse">
+        <div class="mobilemenu">
+                            <div class="main-divider"></div>
+                    <script type="text/javascript">
+        $(function() {
+            $('.mobile-menu-block-form-login-show-btn').on('click', function() {
+                $('#mobile-menu-block-form-login-container').show();
+                $('#mobile-menu-block-form-registration-container, #mobile-menu-block-form-forgot_password-container').hide();
+            });
+            $('.mobile-menu-block-form-registration-show-btn').on('click', function() {
+                $('#mobile-menu-block-form-registration-container').show();
+                $('#mobile-menu-block-form-login-container, #mobile-menu-block-form-forgot_password-container').hide();
+            });
+
+            $('.mobile-menu-block-form-forgot_password-show-btn').on('click', function() {
+                $('#mobile-menu-block-form-forgot_password-container').show();
+                $('#mobile-menu-block-form-login-container, #mobile-menu-block-form-registration-container').hide();
+            });
+
+            // Login
+            $('#mobile-menu-block-form-login-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , $email = $('#mobile-menu-block-form-login-email-field')
+                  , $paswd = $('#mobile-menu-block-form-login-paswd-field')
+                  , email = $.trim($email.val())
+                  , paswd = $.trim($paswd.val())
+                  , $mainFormLogin = $('#main-form-login');
+
+                $loadingImg.show();
+
+                $mainFormLogin.children(':input[name="_username"]').val(email);
+                $mainFormLogin.children(':input[name="_password"]').val(paswd);
+                $mainFormLogin.trigger('submit');
+            });
+            $('#mobile-menu-block-form-login-container').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#mobile-menu-block-form-login-send-btn').trigger('click');
+                }
+            });
+
+            // Registration
+            $('#mobile-menu-block-form-registration-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , $email = $('#mobile-menu-block-form-registration-email-field')
+                  , email = $.trim($email.val())
+                  , $mainFormRegistration = $('#main-form-registration');
+
+                $loadingImg.show();
+
+                $mainFormRegistration.children(':input[name="_email"]').val(email);
+                $mainFormRegistration.data('fnctCallback', function(st){
+                    st && $([$email.get(0)]).val('');
+                    $loadingImg.hide();
+                }).trigger('submit');
+            });
+            $('#mobile-menu-block-form-registration-container').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#mobile-menu-block-form-registration-send-btn').trigger('click');
+                }
+            });
+
+            // Forgot password
+            $('#mobile-menu-block-form-forgot_password-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , $email = $('#mobile-menu-block-form-forgot_password-email-field')
+                  , email = $.trim($email.val())
+                  , $mainFormForgotPassword = $('#main-form-forgot_password');
+
+                $loadingImg.show();
+
+                $mainFormForgotPassword.children(':input[name="_email"]').val(email);
+                $mainFormForgotPassword.data('fnctCallback', function(st){
+                    st && $([$email.get(0)]).val('');
+                    $loadingImg.hide();
+                }).trigger('submit');
+            });
+            $('#mobile-menu-block-form-forgot_password-container').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#mobile-menu-block-form-forgot_password-send-btn').trigger('click');
+                }
+            });
+
+            // Social service
+            // Login
+            $('#mobile-menu-block-form-login-facebook-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , fnctCallback = function(){ $loadingImg.hide() };
+
+                $loadingImg.show();
+
+                $('#main-form-ss-login-form > [name="main-form-ss-login-send-btn"]')
+                    .data({'ssName': 'facebook', 'fnctCallback': fnctCallback})
+                    .trigger('click');
+            });
+
+            // Registration
+            $('#mobile-menu-block-form-registration-facebook-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , fnctCallback = function(){ $loadingImg.hide() };
+
+                $loadingImg.show();
+
+                $('#main-form-ss-registration-form > [name="main-form-ss-registration-send-btn"]')
+                    .data({'ssName': 'facebook', 'fnctCallback': fnctCallback})
+                    .trigger('click');
+            });
+        });
+    </script>
+
+<!-- MOBILE LOGIN -->
+<!-- USER LOGIN -->
+<form>
+    <!-- Join -->
+    <div id="mobile-menu-block-form-registration-container" style="display: none;">
+        <input name="email" id="mobile-menu-block-form-registration-email-field" type="text" placeholder="Email Address" class="LoginStyle">
+        <p>
+            <a id="mobile-menu-block-form-registration-send-btn" href="#stay" class="login">&nbsp;<img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-blue.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">JOIN FREE&nbsp;</a>
+            <span id="mobile-menu-block-form-registration-facebook-send-btn">&nbsp;&nbsp;<a href="#stay" class="inert"><img width="15" height="15" src="http://img.azubu.tv/bundles/azubuweb/img/facebook_block.png?-xno=201501231757"></a>&nbsp;&nbsp;<a href="#stay" class="linkmain"><img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-black.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">Join with Facebook</a></span>
+        </p>
+        <div class="line"></div>
+        <p class="white">Already have an account?<span class="portrait"><br></span><a href="#stay" class="mobile-menu-block-form-login-show-btn linkmain">SIGN IN</a>.</p>
+        <p><a href="#stay" class="mobile-menu-block-form-forgot_password-show-btn linknormal">Oops, I forgot my password.</a></p>
+    </div>
+    <!-- end Join -->
+
+    <!-- Sign In -->
+    <div id="mobile-menu-block-form-login-container">
+        <input name="username" id="mobile-menu-block-form-login-email-field" type="text" class="LoginStyle" placeholder="Email Address or Username">
+        <input name="password" id="mobile-menu-block-form-login-paswd-field" type="password" class="LoginStyle" placeholder="Password">
+        <p>
+            <a id="mobile-menu-block-form-login-send-btn" href="#stay" class="login">&nbsp;<img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-blue.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">SIGN IN&nbsp;</a>
+            <span id="mobile-menu-block-form-login-facebook-send-btn">&nbsp;&nbsp;<a href="#stay" class="inert"><img width="15" height="15" src="http://img.azubu.tv/bundles/azubuweb/img/facebook_block.png?-xno=201501231757"></a>&nbsp;&nbsp;<a href="#stay" class="linkmain"><img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-black.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">Join with Facebook</a></span>
+        </p>
+        <div class="line"></div>
+        <p class="white">Don't have an account? <span class="portrait"><br></span><a href="#stay" class="mobile-menu-block-form-registration-show-btn linkmain">JOIN HERE</a>.</p>
+        <p><a href="#stay" class="mobile-menu-block-form-forgot_password-show-btn linknormal">Oops, I forgot my password.</a></p>
+    </div>
+    <!-- end Sign in -->
+
+    <!-- forgot -->
+    <div id="mobile-menu-block-form-forgot_password-container" class="white" style="display: none;" >
+        <p><input name="email" id="mobile-menu-block-form-forgot_password-email-field" type="text" class="LoginStyle" placeholder="Email Address"></p>
+        <p>
+            <a id="mobile-menu-block-form-forgot_password-send-btn" href="#stay" class="login"><img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-blue.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0; text-transform: uppercase;">&nbsp;Retrieve Account Info&nbsp;</a>
+        </p>
+        <div class="line"></div>
+        <p class="space">Go back to <a href="#stay" class="mobile-menu-block-form-registration-show-btn linkmain">JOIN HERE</a> or <a href="#stay" class="mobile-menu-block-form-login-show-btn linkmain">Oops, I forgot my passwordSIGN IN</a></p>
+    </div>
+    <!-- end forgot -->
+</form>
+<!-- END MOBILE LOGIN -->                    </div>
+
+        <div class="line"></div>
+
+                    <p><a class="linkmobile" data-az-type="menu-home-link" href="/">HOME</a></p>
+                <p><a class="linkmobile" data-az-type="menu-games-link" href="/games">GAMES</a></p>
+        <p><a class="linkmobile" data-az-type="menu-channels-link"  href="/channels">CHANNELS</a></p>
+        <p><a class="linkmobile" data-az-type="menu-vod-link" href="/vod">VIDEOS</a></p>
+        <p><a class="linkmobile" data-az-type="menu-news-link" href="http://content.azubu.tv">NEWS</a></p>
+        
+        <div class="searchregion">
+            <form style="display:inline" method="get" action="/search">
+                <div class="input-group"> <span class="input-group-addon river"><span class="glyphicon glyphicon-search small"></span></span>
+                    <input name="q" type="text" placeholder="Enter Search Term" class="BroadcastStyle">
+                    <input name="category" value="all" type="hidden" />
+                    <div class="input-group-btn"> &nbsp;<a class="login" href="#" data-az-type="search-btn">Search</a>&nbsp; </div>
+                    <!-- /btn-group -->
+                </div>
+            </form>
+        </div>
+        <p>&nbsp;</p>
+    </div>
+</div>
+
+<!-- /////////////////////////////////////////////// -->
+
+<div id="page">
+    <!-- HEADER  -->
+    <div id="header" align="center">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="logo" id="logo" align="center">
+                        <div class="desktop"><a class="inert" href="/"><img src="http://img.azubu.tv/bundles/azubuweb/img/azubu_blue.png?-xno=201501231757" width="125" height="50" /></a>
+                        </div>
+                        <div class="portrait"><a class="inert" href="/"><img src="http://img.azubu.tv/bundles/azubuweb/img/azubu_blue.png?-xno=201501231757" width="125" height="50" /></a>
+                        </div>
+                        <div class="mobile"><a class="inert" href="/"><img src="http://img.azubu.tv/bundles/azubuweb/img/azubu_blue.png?-xno=201501231757" width="125" height="50" /></a>
+                        </div>
+                    </div>
+                    <!-- DESKTOP Menu -->
+                    <span class="mainmenu">
+                        <a href="/games" class="linkmain">GAMES</a>
+                        &nbsp;&nbsp;
+                        <a href="/channels" class="linkmain">CHANNELS</a>
+                        &nbsp;&nbsp;
+                        <a href="/vod" class="linkmain">VIDEOS</a>
+                        &nbsp;&nbsp;
+                        <a href="http://content.azubu.tv" class="linkmain">NEWS</a>
+                                            </span>
+                    <!-- end DESKTOP Menu -->
+
+                    <a href="#" class="expandlink" data-toggle="collapse" data-target=".navbar-collapse"></a>
+                    <div class="profile_all white">
+                        <span id="head-block-dropdown-container" class="dropdown">
+                                                                <link type="text/css" rel="stylesheet" href="http://img.azubu.tv/bundles/azubuweb/css/module-top-dropdown-registration.css?-xno=201501231757" />
+    <script type="text/javascript">
+        $(function() {
+            $('.head-block-dropdown-form-login-show-btn').on('click', function() {
+                $('#head-block-dropdown-form-login-container').show();
+                $('#head-block-dropdown-form-registration-container, #head-block-dropdown-form-forgot_password-container').hide();
+            });
+            $('.head-block-dropdown-form-registration-show-btn').on('click', function() {
+                $('#head-block-dropdown-form-registration-container').show();
+                $('#head-block-dropdown-form-login-container, #head-block-dropdown-form-forgot_password-container').hide();
+            });
+
+            $('.head-block-dropdown-form-forgot_password-show-btn').on('click', function() {
+                $('#head-block-dropdown-form-forgot_password-container').show();
+                $('#head-block-dropdown-form-login-container, #head-block-dropdown-form-registration-container').hide();
+            });
+
+            // Login
+            $('#head-block-dropdown-form-login-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , $email = $('#head-block-dropdown-form-login-email-field')
+                  , $paswd = $('#head-block-dropdown-form-login-paswd-field')
+                  , email = $.trim($email.val())
+                  , paswd = $.trim($paswd.val())
+                  , $mainFormLogin = $('#main-form-login');
+
+                $loadingImg.show();
+
+                $mainFormLogin.children(':input[name="_username"]').val(email);
+                $mainFormLogin.children(':input[name="_password"]').val(paswd);
+                $mainFormLogin.trigger('submit');
+            });
+            $('#head-block-dropdown-form-login-container').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#head-block-dropdown-form-login-send-btn').trigger('click');
+                }
+            });
+
+            // Registration
+            $('#head-block-dropdown-form-registration-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , $email = $('#head-block-dropdown-form-registration-email-field')
+                  , email = $.trim($email.val())
+                  , $mainFormRegistration = $('#main-form-registration');
+
+                $loadingImg.show();
+
+                $mainFormRegistration.children(':input[name="_email"]').val(email);
+                $mainFormRegistration.data('fnctCallback', function(st){
+                    st && $([$email.get(0)]).val('');
+                    $loadingImg.hide();
+                }).trigger('submit');
+            });
+            $('#head-block-dropdown-form-registration-container').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#head-block-dropdown-form-registration-send-btn').trigger('click');
+                }
+            });
+
+            // Forgot password
+            $('#head-block-dropdown-form-forgot_password-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , $email = $('#head-block-dropdown-form-forgot_password-email-field')
+                  , email = $.trim($email.val())
+                  , $mainFormForgotPassword = $('#main-form-forgot_password');
+
+                $loadingImg.show();
+
+                $mainFormForgotPassword.children(':input[name="_email"]').val(email);
+                $mainFormForgotPassword.data('fnctCallback', function(st){
+                    st && $([$email.get(0)]).val('');
+                    $loadingImg.hide();
+                }).trigger('submit');
+            });
+            $('#head-block-dropdown-form-forgot_password-container').on('keypress', function(e) {
+                if (e.which === 13) {
+                    $('#head-block-dropdown-form-forgot_password-send-btn').trigger('click');
+                }
+            });
+
+            // Social service
+            // Login
+            $('#head-block-dropdown-form-login-facebook-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , fnctCallback = function(){ $loadingImg.hide() };
+
+                $loadingImg.show();
+
+                $('#main-form-ss-login-form > [name="main-form-ss-login-send-btn"]')
+                    .data({'ssName': 'facebook', 'fnctCallback': fnctCallback})
+                    .trigger('click');
+            });
+
+            // Registration
+            $('#head-block-dropdown-form-registration-facebook-send-btn').on('click', function() {
+                var $loadingImg = $(this).find('.loading-indicator')
+                  , fnctCallback = function(){ $loadingImg.hide() };
+
+                $loadingImg.show();
+
+                $('#main-form-ss-registration-form > [name="main-form-ss-registration-send-btn"]')
+                    .data({'ssName': 'facebook', 'fnctCallback': fnctCallback})
+                    .trigger('click');
+            });
+        });
+    </script>
+
+<a data-toggle="dropdown" class="linkmain dropdown-toggle" href="#">SIGN IN</a>
+<a href="#" class="inert dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-chevron-down smallglyph white glyphicon-top"></span></a>&nbsp;
+<ul class="dropdown-menu" style="background-color: #404145; margin: 15px 0px 0px -100px;" menu="menu">
+    <li>
+        <form class="userdropdown">
+            <!-- Join -->
+            <div id="head-block-dropdown-form-registration-container" style="display: none;">
+                <input name="email" id="head-block-dropdown-form-registration-email-field" type="text" class="LoginStyle" placeholder="Email Address">
+                <p>
+                    <a id="head-block-dropdown-form-registration-send-btn" href="#stay" class="login">&nbsp;<img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-blue.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">JOIN FREE&nbsp;</a>
+                    <span id="head-block-dropdown-form-registration-facebook-send-btn">&nbsp;&nbsp;<a href="#stay" class="inert"><img width="15" height="15" src="http://img.azubu.tv/bundles/azubuweb/img/facebook_block.png?-xno=201501231757"></a>&nbsp;&nbsp;<a href="#stay" class="linkmain"><img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-black.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">Join with Facebook</a></span>
+                </p>
+                <div class="line"></div>
+                <p class="white">Already have an account? <span class="portrait"><br></span><a href="#stay" class="head-block-dropdown-form-login-show-btn linkmain">SIGN IN</a>.</p>
+                <p><a href="#stay" class="head-block-dropdown-form-forgot_password-show-btn linknormal">Oops, I forgot my password.</a></p>
+            </div>
+            <!-- end Join -->
+
+            <!-- Sign In -->
+            <div id="head-block-dropdown-form-login-container">
+                <input name="username" id="head-block-dropdown-form-login-email-field" type="text" class="LoginStyle" placeholder="Email Address or Username">
+                <input name="password" id="head-block-dropdown-form-login-paswd-field" type="password" class="LoginStyle" placeholder="Password">
+                <p>
+                    <a id="head-block-dropdown-form-login-send-btn" href="#stay" class="login">&nbsp;SIGN IN&nbsp;</a>
+                    <span id="head-block-dropdown-form-login-facebook-send-btn">&nbsp;&nbsp;<a href="#stay" class="inert"><img width="15" height="15" src="http://img.azubu.tv/bundles/azubuweb/img/facebook_block.png?-xno=201501231757"></a>&nbsp;&nbsp;<a href="#stay" class="linkmain"><img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-black.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">Sign in with Facebook</a></span>
+                </p>
+                <div class="line"></div>
+                <p class="white">Don't have an account? <span class="portrait"><br></span><a href="#stay" class="head-block-dropdown-form-registration-show-btn linkmain">JOIN HERE</a>.</p>
+                <p><a href="#stay" class="head-block-dropdown-form-forgot_password-show-btn linknormal">Oops, I forgot my password.</a></p>
+            </div>
+            <!-- end Sign in -->
+
+            <!-- forgot -->
+            <div id="head-block-dropdown-form-forgot_password-container" class="white" style="display: none;">
+                <p><input name="email" id="head-block-dropdown-form-forgot_password-email-field" type="text" class="LoginStyle" placeholder="Email Address"></p>
+                <p>
+                    <a id="head-block-dropdown-form-forgot_password-send-btn" href="#stay" class="login"><img class="loading-indicator" src="http://img.azubu.tv/bundles/azubuweb/img/btn-loading-indicator-blue.gif?-xno=201501231757" height="16" style="display:none; margin: -2px 6px 0 0;">&nbsp;Retrieve Account Info&nbsp;</a>
+                </p>
+                <div class="line"></div>
+                <p class="space">Go Back to <a href="#stay" class="head-block-dropdown-form-registration-show-btn linkmain">JOIN HERE</a> or <a href="#stay" class="head-block-dropdown-form-login-show-btn linkmain">SIGN IN</a></p>
+            </div>
+            <!-- end forgot -->
+        </form>
+    </li>
+     </ul>                                                        &nbsp;&nbsp;
+                        </span>&nbsp;
+                        <form action="/search" method="get" style="display: inline-block;">
+                            <input name="q" type="text" class="search" placeholder="SEARCH">
+                            <input name="category" value="all" type="hidden" />
+                            <a href="javascript:void(0);" data-az-type="search-btn" class="inert">
+                                <span class="searchicon">&nbsp;
+                                    <span class="glyphicon glyphicon-search white small"></span>&nbsp;
+                                </span>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end 100% -->
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- HEADER end -->
+    </div>
+<!-- PAGE end -->
+
+<!-- HEAD BLOCK end -->
+
+        </div>
+        <div id="mainarea" align="center" style="background-color:#02172a; background-image:url(images/bg_img.png); background-repeat:no-repeat; background-position:center;
+			background-position-y: 190px;" >
+       <!---------------------------------content goes here-------------------------------------------->
+      <div class="container">
+      <div class="starter-template" style="margin-top: 20px;">
+        <h2>Broadcasters </h2>
+        <div class="row">
+        <div class="col-xs-6 col-sm-3">
+        <ul> 
+        <li class="list-unstyled"><a href="http://www.azubu.tv/sheep" title="Live eSports channels | Azubu" >Sheep</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Hadaka" title="Live eSports channels | Azubu">Hadaka</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cain" title="Live eSports channels | Azubu">Cain</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Save" title="Live eSports channels | Azubu">Save</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Watch" title="Live eSports channels | Azubu">Watch</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Ggoong" title="Live eSports channels | Azubu">Ggoong</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Zefa" title="Live eSports channels | Azubu">Zefa</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Ohq" title="Live eSports channels | Azubu">Ohq</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/TrAce" title="Live eSports channels | Azubu">TrAce</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Fly-Kr" title="Live eSports channels | Azubu">Fly-Kr</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Pilot" title="Live eSports channels | Azubu">Pilot</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Ambition" title="Live eSports channels | Azubu">Ambition</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Vallutaja" title="Live eSports channels | Azubu">Vallutaja</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Morte" title="Live eSports channels | Azubu">Morte</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Frezzar" title="Live eSports channels | Azubu">Frezzar</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Score" title="Live eSports channels | Azubu">Score</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Jesiz" title="Live eSports channels | Azubu">Jesiz</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Azubulivingston" title="Live eSports channels | Azubu">Azubulivingston</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cackgod" title="Live eSports channels | Azubu">Cackgod</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Space" title="Live eSports channels | Azubu">Space</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/CoCo" title="Live eSports channels | Azubu">CoCo</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Chei" title="Live eSports channels | Azubu">Chei</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Chaser" title="Live eSports channels | Azubu">Chaser</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/XD" title="Live eSports channels | Azubu">XD</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cris" title="Live eSports channels | Azubu">Cris</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Mash" title="Live eSports channels | Azubu">Mash</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/dawolfsclaw" title="Live eSports channels | Azubu">dawolfsclaw</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Liquidlnori" title="Live eSports channels | Azubu">Liquidlnori</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/YellOwStaR" title="Live eSports channels | Azubu">YellOwStaR</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Bodydrop" title="Live eSports channels | Azubu">Bodydrop</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Otter" title="Live eSports channels | Azubu">Otter</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Wolf" title="Live eSports channels | Azubu">Wolf</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Impact" title="Live eSports channels | Azubu">Impact</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Faker" title="Live eSports channels | Azubu">Faker</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Easyhoon" title="Live eSports channels | Azubu">Easyhoon</a></li>
+       <li class="list-unstyled"><a href="http://www.azubu.tv/Bang" title="Live eSports channels | Azubu">Bang</a></li>
+        </ul>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cpt_Jack" title="Live eSports channels | Azubu">Cpt_Jack</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Arrow" title="Live eSports channels | Azubu">Arrow</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Prime" title="Live eSports channels | Azubu">Prime</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Hachani" title="Live eSports channels | Azubu">Hachani</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/2Easy" title="Live eSports channels | Azubu">2Easy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Vietnam_eSports_TV" title="Live eSports channels | Azubu">Vietnam_eSports_TV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/uNFixed" title="Live eSports channels | Azubu">uNFixed</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/skyred" title="Live eSports channels | Azubu">skyred</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/FnaticTV" title="Live eSports channels | Azubu">FnaticTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AquaTV" title="Live eSports channels | Azubu">AquaTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/VandeR" title="Live eSports channels | Azubu">VandeR</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/olofmeister" title="Live eSports channels | Azubu">olofmeister</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Impaler" title="Live eSports channels | Azubu">Impaler</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/ssumday" title="Live eSports channels | Azubu">ssumday</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/soul" title="Live eSports channels | Azubu">soul</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/JW" title="Live eSports channels | Azubu">JW</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/mOOnGLaDe" title="Live eSports channels | Azubu">mOOnGLaDe</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Twixsen" title="Live eSports channels | Azubu">Twixsen</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Kaldi" title="Live eSports channels | Azubu">Kaldi</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/FnaticGOTV" title="Live eSports channels | Azubu">FnaticGOTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Carn" title="Live eSports channels | Azubu">Carn</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/pronax" title="Live eSports channels | Azubu">pronax</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/flusha" title="Live eSports channels | Azubu">flusha</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Devilwalk" title="Live eSports channels | Azubu">Devilwalk</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/sOAZ" title="Live eSports channels | Azubu">sOAZ</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Rekkles" title="Live eSports channels | Azubu">Rekkles</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cyanide" title="Live eSports channels | Azubu">Cyanide</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/xPeke" title="Live eSports channels | Azubu">xPeke</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/KrimzCSGO" title="Live eSports channels | Azubu">KrimzCSGO</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Duke" title="Live eSports channels | Azubu">Duke</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Lilac" title="Live eSports channels | Azubu">Lilac</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AAMasters" title="Live eSports channels | Azubu">AAMasters</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Frozen" title="Live eSports channels | Azubu">Frozen</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Wisdom" title="Live eSports channels | Azubu">Wisdom</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Bory" title="Live eSports channels | Azubu">Bory</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/TusIN" title="Live eSports channels | Azubu">TusIN</a></li>
+        </ul>
+        </div>
+        <!-- Add the extra clearfix for only the required viewport -->
+         <div class="col-xs-6 col-sm-3">
+         <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/SONSTAR" title="Live eSports channels | Azubu">SONSTAR</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Smurf" title="Live eSports channels | Azubu">Smurf</a></li>
+         <li class="list-unstyled"><a href="http://www.azubu.tv/Shy" title="Live eSports channels | Azubu">Shy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Gunza" title="Live eSports channels | Azubu">Gunza</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Lee" title="Live eSports channels | Azubu">Lee</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Riot_Games_Oceania" title="Live eSports channels | Azubu">Riot_Games_Oceania</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Woolite" title="Live eSports channels | Azubu">Woolite</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Habom" title="Live eSports channels | Azubu">Habom</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/thy" title="Live eSports channels | Azubu">thy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/HyuN" title="Live eSports channels | Azubu">HyuN</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Emperor" title="Live eSports channels | Azubu">Emperor</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Flame" title="Live eSports channels | Azubu">Flame</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Artosis" title="Live eSports channels | Azubu">Artosis</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Daydream" title="Live eSports channels | Azubu">Daydream</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/MadLife" title="Live eSports channels | Azubu">MadLife</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Limit" title="Live eSports channels | Azubu">Limit</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/namiflop" title="Live eSports channels | Azubu">namiflop</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Riot_Games" title="Live eSports channels | Azubu">Riot_Games</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Azubu" title="Live eSports channels | Azubu">Azubu</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/x5tv" title="Live eSports channels | Azubu">x5tv</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Harstem" title="Live eSports channels | Azubu">Harstem</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AzubuBrant" title="Live eSports channels | Azubu">AzubuBrant</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/eSportspedia_Events" title="Live eSports channels | Azubu">eSportspedia_Events</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Skyen" title="Live eSports channels | Azubu">Skyen</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/x5tv2" title="Live eSports channels | Azubu">x5tv2</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Miniraser" title="Live eSports channels | Azubu">Miniraser</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/The_Azubu_Crystal_Cup" title="Live eSports channels | Azubu">The_Azubu_Crystal_Cup</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/The_Azubu_Shadow_Cup" title="Live eSports channels | Azubu">The_Azubu_Shadow_Cup</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/MC" title="Live eSports channels | Azubu">MC</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Y-Nots" title="Live eSports channels | Azubu">Y-Nots</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Destiny" title="Live eSports channels | Azubu">Destiny</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/MarquiseFool" title="Live eSports channels | Azubu">MarquiseFool</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/RooKie" title="Live eSports channels | Azubu">RooKie</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/KaKAO" title="Live eSports channels | Azubu">KaKAO</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Lucifer" title="Live eSports channels | Azubu">Lucifer</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/CJ_Entus_Blaze" title="Live eSports channels | Azubu">CJ_Entus_Blazee</a></li>
+        </ul>
+         </div>
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/GoRush" title="Live eSports channels | Azubu">GoRush</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/RagnaroK" title="Live eSports channels | Azubu">RagnaroK</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/NesTea" title="Live eSports channels | Azubu">NesTea</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Brendon" title="Live eSports channels | Azubu">Brendon</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Mvp" title="Live eSports channels | Azubu">Mvp</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Bomber" title="Live eSports channels | Azubu">Bomber</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/yoeFWLeenock" title="Live eSports channels | Azubu">yoeFWLeenock</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Bbuing" title="Live eSports channels | Azubu">Bbuing</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Garena_Taiwan" title="Live eSports channels | Azubu">Garena_Taiwan</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Garena_Singapore" title="Live eSports channels | Azubu">Garena_Singapore</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/gXxshock" title="Live eSports channels | Azubu">gXxshock</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/ChubbeyPuppey" title="Live eSports channels | Azubu">ChubbeyPuppey</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/ConnectiCon-eSports" title="Live eSports channels | Azubu">ConnectiCon-eSports</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/ConnectiCon-Events" title="Live eSports channels | Azubu">ConnectiCon-Events</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Blizzard_Gamescom" title="Live eSports channels | Azubu">Blizzard_Gamescom</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/GorillA" title="Live eSports channels | Azubu">GorillA</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/KurO" title="Live eSports channels | Azubu">KurO</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Riot_Games_Brazil" title="Live eSports channels | Azubu">Riot_Games_Brazil</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/SaphiraTV" title="Live eSports channels | Azubu">SaphiraTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AzubuDarin" title="Live eSports channels | Azubu">AzubuDarin</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Trixi" title="Live eSports channels | Azubu">Trixi</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/N0tail" title="Live eSports channels | Azubu">N0tail</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Fly" title="Live eSports channels | Azubu">Fly</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Overpow" title="Live eSports channels | Azubu">Overpow</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Chawy" title="Live eSports channels | Azubu">Chawy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Azubu2x2" title="Live eSports channels | Azubu">Azubu2x2</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/DigitalZoneCast" title="Live eSports channels | Azubu">DigitalZoneCast</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Tasteless" title="Live eSports channels | Azubu">Tasteless</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Khaldor" title="Live eSports channels | Azubu">Khaldor</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/joinDota" title="Live eSports channels | Azubu">joinDota</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/EmEvent" title="Live eSports channels | Azubu">EmEvent</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Jankos" title="Live eSports channels | Azubu">Jankos</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Era" title="Live eSports channels | Azubu">Era</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/DreamStudio" title="Live eSports channels | Azubu">DreamStudio</a></li>
+        </ul>
+        </div>
+      </div>
+      <!---------------------Games--------------------------->
+       <h2>Games</h2>
+      <div class="row">
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/league-of-legends"  title="Live eSports channels | Azubu">League of Legends</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/hearthstone" title="Live eSports channels | Azubu">Hearthstone</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/dota-2" title="Live eSports channels | Azubu">DOTA2</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/starcraft-ii" title="Live eSports channels | Azubu">Starcraft II</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/csgo" title="Live eSports channels | Azubu">Counter-Strike: Global Offensive</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/battlefield4" title="Live eSports channels | Azubu">Battlefield 4</a></li>
+        </ul>
+        </div>
+         <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/codghosts" title="Live eSports channels | Azubu">Call od Duty: Ghost</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/diablo3" title="Live eSports channels | Azubu">Diablo III</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/streetfighter4" title="Live eSports channels | Azubu">Street Fighter IV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/wot" title="Live eSports channels | Azubu">World of Tanks</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/infinitecrisis" title="Live eSports channels | Azubu">Infinite Crisis</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/other-games" title="Live eSports channels | Azubu">Other Games</a></li>
+        </ul>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/super-smash-bros" title="Live eSports channels | Azubu">Super Smash Bros.</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/dawngate" title="Live eSports channels | Azubu">Dawngate</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/destiny" title="Live eSports channels | Azubu">Destiny</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/heroes-of-the-storm" title="Live eSports channels | Azubu">Heros of the Storm</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/games/wow" title="Live eSports channels | Azubu">World of Warcraft</a></li>
+        </ul>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+        </div>
+      </div>
+      <!---------------------Videos--------------------------->
+      <h2>Videos</h2>
+      <div class="row">
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/2Easy" title="Live eSports channels | Azubu">2Easy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AAMasters" title="Live eSports channels | Azubu">AAMasters</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Alchemixt" title=" Live eSports channels | Azubu">Alchemixt</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Ambition" title=" Live eSports channels | Azubu">Ambition</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AquaTV" title=" Live eSports channels | Azubu">AquaTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Arrow" title=" Live eSports channels | Azubu">Arrow</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Artosis" title=" Live eSports channels | Azubu">Artosis</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AzubuBrant" title=" Live eSports channels | Azubu">AzubuBrant</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/AzubuLivingston" title=" Live eSports channels | Azubu">AzubuLivingston</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Bang" title=" Live eSports channels | Azubu">Bang</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/bengi" title=" Live eSports channels | Azubu">bengi</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Bodydrop" title=" Live eSports channels | Azubu">Bodydrop</a></li> 
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Brendan" title=" Live eSports channels | Azubu">Brendan</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cackgod" title=" Live eSports channels | Azubu">Cackgod</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Carn" title=" Live eSports channels | Azubu">Carn</a></a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Chaser" title=" Live eSports channels | Azubu">Chaser</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Chei" title=" Live eSports channels | Azubu">Chei</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/CoCo" title=" Live eSports channels | Azubu">CoCo</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cpt_Jack" title=" Live eSports channels | Azubu">Cpt_Jack</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Cyanide" title=" Live eSports channels | Azubu">Cyanide</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/dawolfsclaw" title=" Live eSports channels | Azubu">dawolfsclaw</a></li>
+        </ul>
+        </div>
+         <div class="col-xs-6 col-sm-3">
+        <ul>
+         <li class="list-unstyled"><a href="http://www.azubu.tv/drunkkz3" title=" Live eSports channels | Azubu">drunkkz3</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Easyhoon" title=" Live eSports channels | Azubu">Easyhoon</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/flusha" title=" Live eSports channels | Azubu">flusha</a></li>  
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Faker" title=" Live eSports channels | Azubu">Faker</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Flame" title=" Live eSports channels | Azubu">Flame</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/FnaticGOTV" title=" Live eSports channels | Azubu">FnaticGOTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/FnaticTV" title=" Live eSports channels | Azubu">FnaticTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Frezzar" title=" Live eSports channels | Azubu">Frezzar</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Frozen" title=" Live eSports channels | Azubu">Frozen</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/GoRush" title=" Live eSports channels | Azubu">GoRush</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Gunza" title=" Live eSports channels | Azubu">Gunza</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/H4nn1" title=" Live eSports channels | Azubu">H4nn1</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Hadaka" title=" Live eSports channels | Azubu">Hadaka</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Harstem" title=" Live eSports channels | Azubu">Harstem</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/HyuN" title=" Live eSports channels | Azubu">HyuN</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Impact" title=" Live eSports channels | Azubu">Impact</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Impaler" title=" Live eSports channels | Azubu">Impaler</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/JW" title=" Live eSports channels | Azubu">JW</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/KaKAO" title=" Live eSports channels | Azubu">KaKAO</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Kaldi" title=" Live eSports channels | Azubu">Kaldi</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Keane" title=" Live eSports channels | Azubu">Keane</a></li>
+        </ul>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/LiquidInori" title=" Live eSports channels | Azubu">LiquidInori</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Lucifer" title=" Live eSports channels | Azubu">Lucifer</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/MC" title=" Live eSports channels | Azubu">MC</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/MaRin" title=" Live eSports channels | Azubu">MaRin</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/MadLife" title=" Live eSports channels | Azubu">MadLife</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/MarquiseFool" title=" Live eSports channels | Azubu">MarquiseFool</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Miniraser" title=" Live eSports channels | Azubu">Miniraser</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/mOOnGLaDe" title=" Live eSports channels | Azubu">mOOnGLaDe</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Morte" title=" Live eSports channels | Azubu">Morte</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Mvp" title=" Live eSports channels | Azubu">Mvp</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Nagne" title=" Live eSports channels | Azubu">Nagne</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/namiflop" title=" Live eSports channels | Azubu">namiflop</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/NesTea" title=" Live eSports channels | Azubu">NesTea</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/olofmeister" title=" Live eSports channels | Azubu">olofmeister</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Otter" title=" Live eSports channels | Azubu">Otter</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Prime" title=" Live eSports channels | Azubu">Prime</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/pronax" title=" Live eSports channels | Azubu">pronax</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Quas" title=" Live eSports channels | Azubu">Quas</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Rekkles" title=" Live eSports channels | Azubu">Rekkles</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Riot_Games" title=" Live eSports channels | Azubu">Riot_Games</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Saintvicious" title=" Live eSports channels | Azubu">Saintvicious</a></li>
+        </ul>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/sheep" title=" Live eSports channels | Azubu">sheep</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Shy" title=" Live eSports channels | Azubu">Shy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/skyred" title=" Live eSports channels | Azubu">skyred</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/sOAZ" title=" Live eSports channels | Azubu">sOAZ</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/souL" title=" Live eSports channels | Azubu">souL</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Space" title=" Live eSports channels | Azubu">Space</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/ssumday" title=" Live eSports channels | Azubu">ssumday</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/StrifeCro" title=" Live eSports channels | Azubu">StrifeCro</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Tasteless" title=" Live eSports channels | Azubu">Tasteless</a></li> 
+        <li class="list-unstyled"><a href="http://www.azubu.tv/TrAce" title=" Live eSports channels | Azubu">TrAce</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Twixsen" title=" Live eSports channels | Azubu">Twixsen</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/uNFixed" title=" Live eSports channels | Azubu">uNFixed</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/vallutaja" title=" Live eSports channels | Azubu">vallutaja</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Vietnam_eSports_TV" title=" Live eSports channels | Azubu">Vietnam_eSports_TV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Vietnam_eSports_TV2" title=" Live eSports channels | Azubu">Vietnam_eSports_TV2</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/Voyboy" title=" Live eSports channels | Azubu">Voyboy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/YellOwStaR" title=" Live eSports channels | Azubu">YellOwStaR</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/x5tv" title=" Live eSports channels | Azubu">x5tv</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/xPeke" title=" Live eSports channels | Azubu">xPeke</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/yoeFWLeenock" title=" Live eSports channels | Azubu">yoeFWLeenock</a></li>
+        </ul>
+        </div>
+      </div>
+      <!---------------------news--------------------------->
+      <h2>Profiles</h2>
+      <div class="row">
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Impaler" title="Azubu | The Premier eSports Network">Impaler</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Faker" title="Azubu | The Premier eSports Network">Faker</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/MadLife" title="Azubu | The Premier eSports Network">MadLife</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/KaKAO" title="Azubu | The Premier eSports Network">KaKAO</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Flame" title="Azubu | The Premier eSports Network">Flame</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/CoCo" title="Azubu | The Premier eSports Network">CoCo</li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Impact" title="Azubu | The Premier eSports Network"></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/MaRin" title="Azubu | The Premier eSports Network">MaRin</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Ambition" title="Azubu | The Premier eSports Network">Ambition</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/bengi" title="Azubu | The Premier eSports Network">bengi</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Space" title="Azubu | The Premier eSports Network">Space</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Bang" title="Azubu | The Premier eSports Network">Bang</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Easyhoon" title="Azubu | The Premier eSports Network">Easyhoon</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Chei" title="Azubu | The Premier eSports Network">Chei</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/TrAce" title="Azubu | The Premier eSports Network">TrAce</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Frezzar" title="Azubu | The Premier eSports Network">Frezzar</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Kaldi" title="Azubu | The Premier eSports Network">Kaldi</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/FnaticTV" title="Azubu | The Premier eSports Network">FnaticTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Twixsen" title="Azubu | The Premier eSports Network">Twixsen</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Lucifer" title="Azubu | The Premier eSports Network">Lucifer</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/AzubuLivingston" title="Azubu | The Premier eSports Network">AzubuLivingston</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/mOOnGLaDe" title="Azubu | The Premier eSports Network">mOOnGLaDe</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Artosis" title="Azubu | The Premier eSports Network">Artosis</a></li>
+        </ul>
+        </div>
+         <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/namiflop" title="Azubu | The Premier eSports Network">namiflop</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/MarquiseFool" title="Azubu | The Premier eSports Network">MarquiseFool</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/AquaTV" title="Azubu | The Premier eSports Network">AquaTV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/H4nn1" title="Azubu | The Premier eSports Network">H4nn1</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Brendan" title="Azubu | The Premier eSports Network">Brendan</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/uNFixed" title="Azubu | The Premier eSports Network">uNFixed</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/GoRush" title="Azubu | The Premier eSports Network">GoRush</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/NesTea" title="Azubu | The Premier eSports Network">NesTea</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/souL" title="Azubu | The Premier eSports Network">souL</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/MC" title="Azubu | The Premier eSports Network">MC</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Harstem" title="Azubu | The Premier eSports Network">Harstem</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/HyuN" title="Azubu | The Premier eSports Network">HyuN</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Miniraser" title="Azubu | The Premier eSports Network">Miniraser</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/JW" title="Azubu | The Premier eSports Network">JW</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/olofmeister" title="Azubu | The Premier eSports Network">olofmeister</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/AAMasters" title="Azubu | The Premier eSports Network">AAMasters</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/flusha" title="Azubu | The Premier eSports Network">flusha</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/pronax" title="Azubu | The Premier eSports Network">pronax</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/vallutaja" title="Azubu | The Premier eSports Network">vallutaja</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/2Easy" title="Azubu | The Premier eSports Network">2Easy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/FnaticGOTV" title="Azubu | The Premier eSports Network">FnaticGOTV</a></li>
+        </ul>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Carn" title="Azubu | The Premier eSports Network">Carn</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Morte" title="Azubu | The Premier eSports Network">Morte</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/drunkkz3" title="Azubu | The Premier eSports Network">drunkkz3</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Vietnam_eSports_TV2" title="Azubu | The Premier eSports Network">Vietnam_eSports_TV2</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Vietnam_eSports_TV" title="Azubu | The Premier eSports Network">Vietnam_eSports_TV</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/AzubuBrant" title="Azubu | The Premier eSports Network">AzubuBrant</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Cpt_Jack" title="Azubu | The Premier eSports Network">Cpt_Jack</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Chaser" title="Azubu | The Premier eSports Network">Chaser</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/YellOwStaR" title="Azubu | The Premier eSports Network">YellOwStaR</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Cackgod" title="Azubu | The Premier eSports Network">Cackgod</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Gunza" title="Azubu | The Premier eSports Network">Gunza</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Alchemixt" title="Azubu | The Premier eSports Network">Alchemixt</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Riot_Games" title="Azubu | The Premier eSports Network">Riot_Games</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Cyanide" title="Azubu | The Premier eSports Network">Cyanide</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/sOAZ" title="Azubu | The Premier eSports Network">sOAZ</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/x5tv" title="Azubu | The Premier eSports Network">x5tv</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Quas" title="Azubu | The Premier eSports Network">Quas</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Mvp" title="Azubu | The Premier eSports Network">Mvp</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/StrifeCro" title="Azubu | The Premier eSports Network">StrifeCro</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Tasteless" title="Azubu | The Premier eSports Network">Tasteless</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Voyboy" title="Azubu | The Premier eSports Network">Voyboy</a></li>
+        </ul>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+        <ul>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Saintvicious" title="Azubu | The Premier eSports Network">Saintvicious</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/xPeke" title="Azubu | The Premier eSports Network">xPeke</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Frozen" title="Azubu | The Premier eSports Network">Frozen</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/yoeFWLeenock" title="Azubu | The Premier eSports Network">yoeFWLeenock</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Rekkles" title="Azubu | The Premier eSports Network">Rekkles</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/sheep" title="Azubu | The Premier eSports Network">sheep</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Hadaka" title="Azubu | The Premier eSports Network">Hadaka</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/dawolfsclaw" title="Azubu | The Premier eSports Network">dawolfsclaw</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/LiquidInori" title="Azubu | The Premier eSports Network">LiquidInori</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Shy" title="Azubu | The Premier eSports Network">Shy</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Prime" title="Azubu | The Premier eSports Network">Prime</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Keane" title="Azubu | The Premier eSports Network">Keane</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Otter" title="Azubu | The Premier eSports Network">Otter</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Bodydrop" title="Azubu | The Premier eSports Network">Bodydrop</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/ssumday" title="Azubu | The Premier eSports Network">ssumday</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Nagne" title="Azubu | The Premier eSports Network">Nagne</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Arrow" title="Azubu | The Premier eSports Network">Arrow</a></li>
+        <li class="list-unstyled"><a href="http://www.azubu.tv/profile/Score" title="Azubu | The Premier eSports Network">Score</a></li>
+        </ul>
+        </div>
+      </div>
+      <!-------------------end of content----------------->
+      </div>
+    </div>
+    </div>
+<!-- Hidden Block -->
+<div aria-hidden="true" aria-labelledby="InfoModalLabel" role="dialog" tabindex="-1" id="InfoModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 align="center" id="InfoModalLabel" class="modal-title">Broadcaster Info</h4>
+            </div>
+            <div class="modal-body">
+            <div class="well">
+                <p align="center">Content here...</p>
+                <p>&nbsp;</p>
+            </div>
+            <p>&nbsp;</p>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                <button data-dismiss="modal" class="btn btn-primary" type="button">Ok</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------------------------->
+<div class="main-divider"></div>
+<div class="main-divider"></div>
+<div class="main-divider"></div>
+<div class="push">
+</div>
+<!-------------------------------------->
+<div id="footer">
+    <!-- SHOW DESKTOP ONLY -->
+    <div class="container desktop">
+        <div class="left60">
+            <a class="linkfooter" href="/advertise" data-original-title="" title="">Advertise</a>
+            <a class="linkfooter" href="/partner" data-original-title="" title="">Partner</a>
+            <a class="linkfooter" href="/faq" data-original-title="" title="">FAQ</a>
+            <a class="linkfooter" href="/company-profile" data-original-title="" title="">Company Profile</a>
+            <a class="linkfooter" href="/contact-us" data-original-title="" title="">Contact Us</a>
+			<a class="linkfooter" href="http://content.azubu.tv/blog" data-original-title="" title="">Azubu Blog</a>
+            <a target="_blank" class="inert" href="https://twitter.com/AzubuTV" data-original-title="" title="">
+                <img width="25" height="25" src="http://img.azubu.tv/bundles/azubuweb/img/social_tweet_dark.png?-xno=201501231757">
+            </a> 
+            <a class="inert" target="_blank" href="https://www.facebook.com/AzubuMedia" data-original-title="" title="">
+                <img width="25" height="25" src="http://img.azubu.tv/bundles/azubuweb/img/social_facebook_dark.png?-xno=201501231757">
+            </a>
+            <a href="https://plus.google.com/u/0/113631990387612805210/posts?cfem=1" target="_blank" class="inert" data-original-title="" title="">
+                <img src="http://img.azubu.tv/bundles/azubuweb/img/social_gplus_dark.png?-xno=201501231757" width="25" height="25">
+            </a>
+        </div>
+        <div class="right40">
+            <a style="padding-right: 3px;" class="linkfooter" href="/terms" data-original-title="" title="">Terms &amp; Conditions</a>
+            <a style="padding-right: 3px;" class="linkfooter" href="/policy" data-original-title="" title="">Privacy Policy</a>
+            <span class="small">&copy; Azubu 2014</span>
+                        <span class="small" style="display: inline-block;"><font color="lightgrey">710b3af</font></span>
+                    </div>
+    </div>
+    <!-- end SHOW DESKTOP ONLY -->
+    <!-- SHOW MOBILE ONLY-->
+    <div class="mobile">
+        <div align="center" style="text-align:center;">
+        <form name="footerform" method="get" action="#" >
+            <select size="1" name="menu" onChange="location=document.footerform.menu.options[document.footerform.menu.selectedIndex].value;" value="GO">
+                <option selected="selected">Menu</option>
+                <option value="/advertise" >Advertise</option>
+                <option value="/partner" >Partner</option>
+                <option value="/faq" >FAQ</option>
+                <option value="/company-profile" >Company Profile</option>
+                <option value="/contact-us" >Contact Us</option>
+                <option value="/terms">Terms &amp; Conditions</option>
+                <option value="/policy">Privacy Policy</option>
+                <option value="https://twitter.com/AzubuTV">Twitter Azubu</option>
+                <option value="https://www.facebook.com/AzubuMedia">Facebook Azubu</option>
+                <option value="https://plus.google.com/u/0/113631990387612805210/posts?cfem=1">Google+ Azubu</option>
+                <option value="http://content.azubu.tv/blog" >Azubu Blog</option>
+            </select>
+        </form>
+            
+        </div>
+        <p>&nbsp;</p>
+        <div align="center" class="small">&copy; Azubu 2014</div>
+    </div>
+    <!-- end SHOW MOBILE ONLY -->
+    
+</div>
+<script type="text/javascript">
+  //$('.nav-pills, .nav-tabs').tabdrop();
+</script>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
+{ (i[r].q=i[r].q||[]).push(arguments)}
+,i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38697080-1', 'auto');
+ga('create', 'UA-57082407-1', 'auto', {'name': 'AzubuProperties'});
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+ga('AzubuProperties.send', 'pageview');
+
+if (typeof window.AZUBU === 'object' && typeof window.AZUBU.user === 'object' && typeof window.AZUBU.user.info === 'object' && $.isFunction(window.AZUBU.user.info.ready)) {
+    window.AZUBU.user.info.ready(function(info){
+        ga('AzubuProperties.set', '&uid', info.getId());
+        ga('AzubuProperties.send', 'event', 'user', 'recognition');
+    });
+}
+
+</script>
+        <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(["trackPageView"]);
+        _paq.push(["enableLinkTracking"]);
+
+        (function() {
+            var u = (("https:" == document.location.protocol) ? "https" : "http") + "://piwik.azubu.tv/";
+            _paq.push(["setTrackerUrl", u + "piwik.php"]);
+            _paq.push(["setSiteId", 2]);
+            var d = document, g = d.createElement("script"), s = d.getElementsByTagName("script")[0];
+            g.type = "text/javascript";
+            g.defer = true;
+            g.async = true;
+            g.src = u + "piwik.js";
+            s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+            <script src="http://img.azubu.tv/bundles/bazingajstranslation/js/translator.min.js?-xno=201501231757"></script>
+    <script src="http://www.azubu.tv/translations/general"></script>
+
+
+    </body>
+</html>

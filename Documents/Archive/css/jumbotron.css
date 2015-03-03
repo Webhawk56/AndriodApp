@@ -1,0 +1,28 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.container_top {
+    font-size: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .container_top .about {
+        width: 60%;
+    }
+}
+
+.container_top .about {
+    margin-bottom: 24px;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+    background-size: cover;
+}
+
+.jumbotron .btn {
+    text-transform: uppercase;
+}

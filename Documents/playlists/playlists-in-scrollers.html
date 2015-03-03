@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" ng-app="azubu">
+  <head>
+    <title>Display Playlists in a Scroller</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="scripts/jsCarousel-2.0.0.js" type="text/javascript"></script>
+    <link href="css/jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
+    
+    <!-- styles for playlist scrollers -->
+				<style id="pageStyles">
+          body 
+					{
+            margin:20px;
+          }
+					
+					.playlist-name 
+					{
+            display:block;
+            font-size: medium !important;
+            color: #000;
+          }
+					.thumbnail-text
+					{
+						font-size:x-small;
+						font-weight:normal;
+						padding-top:4px;
+						width: 120px;
+						overflow:hidden;
+					}
+        </style>
+  </head>
+  <body>
+  
+    <h2>Display Playlists in a Scroller</h2>
+    
+    <p>This sample displays multiple playlists in separate horizontal scrollers using the <code>jsCarousel</code> jQuery plugin.</p>       
+    
+    <!-- Start of Brightcove Player -->
+        
+    <div style="display:none">
+    
+    </div>
+    
+    <!--
+    By use of this code snippet, I agree to the Brightcove Publisher T and C 
+    found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+    -->
+    
+    <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+    
+    <object id="myExperience921449663001" class="BrightcoveExperience">
+        <param name="bgcolor" value="#FFFFFF" />
+        <param name="width" value="480" />
+        <param name="height" value="270" />
+        <param name="playerID" value="2079935931001" />
+        <param name="playerKey" value="AQ~~,AAAA1oy1bvE~,ALl2ezBj3WE0z3yX6Xw29sdCvkH5GCJv" />
+        <param name="isVid" value="true" />
+        <param name="isUI" value="true" />
+        <param name="dynamicStreaming" value="true" />
+        <param name="@videoPlayer" value="921449663001" />
+
+        <!-- smart player api params -->
+        <param name="includeAPI" value="true" />
+        <param name="templateLoadHandler" value="onTemplateLoad" />
+        <param name="templateReadyHandler" value="onTemplateReady" />
+    </object>
+        
+    <!-- 
+    This script tag will cause the Brightcove Players defined above it to be created as soon
+    as the line is read by the browser. If you wish to have the player instantiated only after
+    the rest of the HTML is processed and the page load is complete, remove the line.
+    -->
+    <script type="text/javascript">brightcove.createExperiences();</script>
+    
+    <!-- End of Brightcove Player -->
+    
+    <br/><br/>
+           
+    <span id="playlist-name1" class="playlist-name"></span>
+    <div id="hWrapper">
+        <!-- This is the container for the horizontal scroller1 -->
+        <div id="hCarousel1">
+            <!-- This container is for the clickable video still images -->
+        </div>
+    </div>
+    <br/>
+    
+    <span id="playlist-name2" class="playlist-name"></span>
+    <div id="hWrapper">
+        <!-- This is the container for the horizontal scroller2 -->
+        <div id="hCarousel2">
+            <!-- This container is for the clickable video still images -->
+        </div>
+    </div>
+    <br/>
+    
+    <span id="playlist-name3" class="playlist-name"></span>
+    <div id="hWrapper">
+        <!-- This is the container for the horizontal scroller3 -->
+        <div id="hCarousel3">
+            <!-- This container is for the clickable video still images -->
+        </div>
+    </div>
+    <br/>
+      
+		<script type="text/javascript">
+      <!-- custom script for playlist scrollers -->
+			var player,
+				APIModules,
+				videoPlayer,
+				contentModule,
+				// array of playlist IDs - substitute your list of playlist IDs 
+				playlistIds = [1323984735001,1323984733001,1323984734001],
+				numberPlayerIds = playlistIds.length,
+				obj = {},
+				videoDTO = {},
+				relatedVideos = {};
+				
+			// initialize playlist data array
+			obj.playlistsData = [];
+			
+			var onTemplateLoad = function(experienceID){
+				console.log("EVENT: onTemplateLoad");
+				// get a reference to the player, API Modules and Events 
+				player = brightcove.api.getExperience(experienceID);
+				APIModules = brightcove.api.modules.APIModules;
+			};
+		 
+			var onTemplateReady = function(evt) {
+				console.log("EVENT.onTemplateReady");
+				// get references to modules
+				videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);
+				contentModule = player.getModule(APIModules.CONTENT);
+				
+				// get the data for each playlist in the array
+				getPlaylistsData(0);
+			};
+			
+			/**** retrieves the playlists from the Video Cloud service
+					* because the calls are asynchronous,
+					* this function needs to keep calling itself
+					* until it has looped over the entire playlist ids array ****/
+			var getPlaylistsData = function(counter){
+			
+				contentModule.getPlaylistByID(playlistIds[counter], function(playlistDTO) {
+					// add playlist data to master array
+					obj.playlistsData.push(playlistDTO);
+					if (counter < numberPlayerIds - 1) {
+						// not done yet, function increments the counter and recalls itself
+						counter++;
+						getPlaylistsData(counter);
+					}
+					else {
+						// now we're done, buid the scrollers
+						buildPlaylistScrollers();
+					}
+				});
+			}
+			
+			var buildPlaylistScrollers = function() {
+				console.log("buildPlaylistScrollers");
+				//console.log(obj.playlistsData);
+				// create the video thumbnail links in the scroller and write it into the HTML
+				for (var i in obj.playlistsData) {
+					// loop thru each playlist
+					var playlistNum = parseInt(i, 10) + 1;
+					// assign the playlist name above the video scroller
+					document.getElementById("playlist-name"+playlistNum).innerHTML = obj.playlistsData[i].displayName;
+					var str = "";
+					for (var j in obj.playlistsData[i].videos) {
+						// loop thru all videos in the current playlist and create a video list
+						str += '<div><img src="'+obj.playlistsData[i].videos[j].videoStillURL+
+						  '" onClick="playVideo('+i+','+j+');"/><br/><span class="thumbnail-text">'+
+							obj.playlistsData[i].videos[j].displayName+'</span></div>';
+					}								
+					document.getElementById("hCarousel" + playlistNum).innerHTML = str;
+					// instantiate the jsCarousel scroller with the video list
+					$('#hCarousel' + playlistNum).jsCarousel({onthumbnailclick:function(src){},autoscroll: false, 
+					  masked: false, itemstodisplay: 5, orientation: 'h', circular: true });
+				}
+				
+			};
+			
+			var playVideo = function(selectedPlaylist, selectedVideo) {
+				//console.log("EVENT.onClick " + selectedPlaylist + ", " + selectedVideo);
+				
+				// load and play the selected video with the playlist index and the video index
+				videoPlayer.loadVideoByID(obj.playlistsData[selectedPlaylist].videos[selectedVideo].id);
+							
+			};	
+			<!-- end of custom script for playlists scroller -->
+    
+    </script>
+  
+  </body>
+</html>

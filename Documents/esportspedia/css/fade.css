@@ -1,0 +1,83 @@
+html, body {
+ height:100%;	
+}
+
+body{
+  margin:0;
+  padding:0;
+  background-color:#132331;
+
+}
+
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  padding-top:17%;
+
+
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  
+}
+
+
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+html,
+body,
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+  height: 100%;
+}
+.item:nth-child(1) {
+	background-image:url(../img/lol_no_logo_ptn.png);
+	background-repeat:no-repeat;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+	background-position:center;
+	
+}
+.item:nth-child(2) {
+	background-image:url(../img/cod_no_logo_ptn.png);
+	background-repeat:no-repeat;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+	background-position:center;
+
+}
+.item:nth-child(3) {
+	background-image:url(../img/halobg_no_logo_ptn.png);
+	bbackground-repeat:no-repeat;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+	background-position:center;
+	
+}
+
+

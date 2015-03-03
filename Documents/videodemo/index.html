@@ -1,0 +1,256 @@
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" ng-app>
+<head>
+<meta charset="utf-8">
+<title>3.0 video overlay demo</title>
+ <link href="css/videojs-overlay.css" rel='stylesheet'>
+ <link rel="stylesheet" type="text/css" href="css/dark-glass/sidebar.css" />
+ <link rel="shortcut icon" href="./ico/favicon.ico">
+ <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+ <!--<link href="http://players.brightcove.net/videojs-overlay/lib/videojs-overlay.css" rel='stylesheet'>-->
+  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.8.13/jquery-ui.min.js"></script>
+  
+  
+<style>
+
+body
+{
+    font-size: 12px;
+    font-family: sans-serif;
+	background-color:#e8e8e8;
+}
+
+/* start: video handlers */
+
+.video-container {
+    position: relative;
+    padding-bottom: 33.6%;
+	padding-top: 1%;
+    height: 0; overflow: hidden;
+    clear: both;
+	/*background-color:#02172a;*/
+	background-image:url(img/slide-3.png);
+	background-position-y: -30px;
+	background-repeat:no-repeat;
+	background-size:cover;
+	
+}
+
+
+.video-container2 {
+    position: relative;
+	padding-bottom: 39.6%;
+    height: 0; overflow: hidden;
+    clear: both;
+	margin-top: 5%;
+	background-color:#e8e8e8;
+}
+
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	align-content:center;
+	
+}
+
+#myPlayerID .vjs-big-play-button {
+background-color: transparent;
+background-image: url(http://www.authsci.com/player/img/play.png);
+background-repeat: no-repeat;
+background-position: center;
+opacity: .5;
+text-align: center;
+margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    
+    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 5s; /* Firefox < 16 */
+        -ms-animation: fadein 5s; /* Internet Explorer */
+         -o-animation: fadein 5s; /* Opera < 12.1 */
+            animation: fadein 5s;
+}
+    
+#myPlayerID .vjs-big-play-button:hover, #myPlayerID .vjs-big-play-button:focus, #myPlayerID .vjs-big-play-active:hover
+{
+    -moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none; 
+    opacity: .7;
+}
+/* end: video-handlers */
+
+
+.stats {
+	color:#ddc314;
+}
+    
+</style>
+
+<!------------overlay css----------------->
+
+<style>
+div#overlay {
+	display: none;
+	z-index: 2;
+	background: #000;
+	position: fixed;
+	width: 56%;
+	height: 582px;
+	top: 15%;
+	left: 22%;
+	text-align: center;
+}
+div#specialBox {
+	font-size:18px;
+	display: none;
+	position: relative;
+	z-index: 3;
+	margin: 150px auto 0px auto;
+	width: 60%; 
+	height: 80%;
+	background: #000;
+	margin-top:100px;
+	/*top: 50%;*/
+	color: #fff;
+}
+
+
+div#wrapper {
+	position:relative;
+	align-content:center;
+	top: 0px;
+	left: 0px;
+	padding-left:24px;
+}
+ul {
+ list-style-type: none;
+
+ }
+</style>
+<!---------end---------------->
+<!--------overlayscript-------------->
+<script>
+function toggleOverlay(){
+	var overlay = document.getElementById('overlay');
+	var specialBox = document.getElementById('specialBox');
+	overlay.style.opacity = .8;
+	if(overlay.style.display == "block"){
+		overlay.style.display = "none";
+		specialBox.style.display = "none";
+	} else {
+		overlay.style.display = "block";
+		specialBox.style.display = "block";
+	}
+}
+
+</script>
+</head>
+
+<body>
+<!--------------------------------->
+<div id="overlay">
+<div id="specialBox" style="background-image:url(img/faker_big.png); background-repeat:no-repeat;" align="justify">
+  
+   <ul>
+       <span style="font-size:24px; text-transform:uppercase;">Faker Career Stats</span>
+            <li><span class="stats">Hometown:</span> South Korea</li>
+            <li><span class="stats">Position:</span> Mid Lane</li>
+            <li><span class="stats">Total Wins:</span> 4</li>
+            <li><span class="stats">Season Wins:</span> 4W - 3L</li>
+            <li><span class="stats">Avg.KDA Ratio:</span> 3.5</li>
+            <li><span class="stats">Avg.Gold per Min:</span> 399</li>
+            <li><span class="stats">Avg.Total Gold:</span> 14K</li>
+        </ul>
+</div>
+</div>
+  <div class="video-container" align="center" style="margin-top: 8%;">
+  <video  id="myPlayerID"
+  width="1024"   
+  height="610"
+  data-account="3361910549001"
+  data-player="2bab2cc3-618c-40ee-bd20-025b3518c8c4"
+  data-embed="default"
+  data-video-id="3841062879001"
+  class="video-js" controls>
+  </video>
+  <script src="http://players.brightcove.net/3361910549001/2bab2cc3-618c-40ee-bd20-025b3518c8c4_default/index.min.js"></script>
+  <script src="http://players.brightcove.net/videojs-overlay/lib/videojs-overlay.js"></script>
+ </div>
+ 
+     
+ <div class="video-container2" align="center" style="margin-top: 3%;">
+
+<div id="wrapper">
+
+  <button class="btn = btn btn-success" onmousedown="toggleOverlay()">Faker Stats</button>
+  <button class="btn = btn btn-success"onmousedown="toggleOverlay()">Close</button>
+ 
+</div>
+</div>
+ <!----end player----->
+       <!--ul id="demo_menu2">
+       <span style="font-size:24px; text-transform:uppercase;">Faker Career Stats</span>
+            <li><span class="stats">Hometown:</span> South Korea</li>
+            <li><span class="stats">Position:</span> Mid Lane</li>
+            <li><span class="stats">Total Wins:</span> 4</li>
+            <li><span class="stats">Season Wins:</span> 4W - 3L</li>
+            <li><span class="stats">Avg.KDA Ratio:</span> 3.5</li>
+            <li><span class="stats">Avg.Gold per Min:</span> 399</li>
+            <li><span class="stats">Avg.Total Gold:</span> 14K</li>
+        </ul>--->
+ <script src="js/bootstrap.min.js" type="text/javascript"></script>
+ <script id="pageScript" type="text/javascript">
+  var myPlayer = videojs("myPlayerID");
+  myPlayer.overlay({
+    content: '<strong>Default overlay content</strong>',
+    overlays: [{
+      content: 'Lee "Faker" Sang-hyeok is the mid laner for SK Telecom T1, and is widely regarded as the best mid laner, or even best League of Legends player, in the entire world.',
+	  start: 'play',
+      end: 'pause'
+    }, {
+      content: 'This timed overlay message appears between 5 and 10 seconds',
+      start: 5,
+      end: 10,
+      align: 'bottom-right'
+    }, {
+	  content: 'Faker Stats and other stuff',	
+      start: 12,
+      end: 17,
+      align: 'bottom-right'
+    }]
+  });
+</script>
+<script>
+beforeClose: function(){
+    $('.overlay:first')
+        .clone()
+        .appendTo('body')
+        .show()
+        .fadeOut(400, function(){ 
+            $(this).remove(); 
+        })
+    ;
+}
+</script>
+<!------sidenav------------>
+ 
+        <script type="text/javascript">
+        $("ul#demo_menu2").sidebar({
+            position:"right",
+            open:"click"
+        });
+        </script>
+</body>
+</html>
